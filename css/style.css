@@ -1,0 +1,24 @@
+li {
+    margin: 8px auto;
+}
+
+div .test_section {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+div #id_name_1 {
+    background-color: #ffaaff;
+}
+
+div .class_name_1 {
+    background-color: #ffaaaa;
+}
+
+div .class_name_2 {
+    background-color: #aaffaa;
+}
+
+div div div {
+    background-color: #aaaaff;
+}

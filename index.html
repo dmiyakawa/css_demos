@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="js/jquery-3.0.0.min.js""></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>CSS Memos</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>CSS Memos</h1>
+      </div>
+      <div class="row">
+        <ul>
+          <li>重み = <code>!important</code>が宣言されたCSSルールが優先される</li>
+          <li>詳細度 = 「詳細」なCSSルールが優先される</li>
+          <li>宣言順 = 後に宣言されたものが優先される</li>
+        </ul>
+        <p>
+          詳細は「CSS Cascading and Inheritance」を参照のこと。
+          2016-07-06時点では
+          <a href="https://www.w3.org/TR/css-cascade-4/">CSS Cascading and Inheritance Level 4</a>
+        </p>
+      </div>
+      <div class="row">
+        <h2>詳細度に基づいたCSS選択ルール</h2>
+      </div>
+      <div class="row">
+        <p>
+          重みを指定していない場合、CSSの優先度は
+          「
+          ID
+          > クラス, 属性(<code>[id="hoge"]</code>), 擬似クラス (<code>:hover</code>)
+          > 型 (<code>div</code>)
+          」
+          で決まる。
+        </p>
+        <div class="test_section">
+          <div id="id_name_1" class="class_name_1">
+            <ul>
+              <li>CSSルール <code>div .class_name_1</code> が適用されていれば背景色は赤っぽくなる</li>
+              <li>CSSルール <code>div #class_name_1</code> が適用されていれば背景色は紫っぽくなる</li>
+              <li>ここではID側が優先され、紫っぽくなる</li>
+            </ul>
+          </div>
+        </div>
+        <div class="test_section">
+          <div class="class_name_1">
+            <div>
+              <div class="class_name_2">
+                <ul>
+                  <li>CSSルール <code>div .class_name_1</code> が適用されていれば背景色は赤っぽくなる</li>
+                  <li>CSSルール <code>div .class_name_2</code> が適用されていれば背景色は緑っぽくなる</li>
+                  <li>CSSルール <code>div div div</code> が適用されていれば背景色は青っぽくなる</li>
+                  <li>ここでは<code>div .class_name_2</code>が適用され、緑っぽくなる</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
